@@ -1,6 +1,7 @@
 # IBMRAG
 ## IBM RAG and Agentic AI Professional Certificate (7 course series)
 
+Professional Certificate - 9 course series
 Enhance your career in the high-growth field of artificial intelligence with advanced skills in generative AI. This program is designed to equip you with advanced techniques and tools such as prompt engineering, Agentic, and multimodal AI integration, enabling you to create sophisticated & context-aware AI applications.
 
 This program will teach you advanced AI skills including developing efficient Retrieval-Augmented Generation (RAG) pipelines, integrating multimodal AI for text, image, and audio processing, as well as designing autonomous multiagent systems. The program will not only help you advance your career in AI but also provides a strong foundation for future career development in areas such as advanced data science, deep learning, and AI-driven automation. 
