@@ -87,12 +87,12 @@ def recommend_by_vibe(vibe: str) -> str:
     # Pass 1: Search structured vibe tags in JSON
     structured_matches = []
     for restaurant in restaurants:
-        vibe_field = restaurant.get("vibe", "")
+        vibe_field = restaurant.get("vibe") or ""
         vibes_value = restaurant.get("vibes")
         if isinstance(vibes_value, str):
             vibes_list = [vibes_value.lower()]
         else:
-            vibes_list = [v.lower() for v in vibes_value or []]
+            vibes_list = [str(v).lower() for v in vibes_value or []]
 
         description = _first_present(
             restaurant,
@@ -108,14 +108,14 @@ def recommend_by_vibe(vibe: str) -> str:
                     "name": restaurant["name"],
                     "location": restaurant.get("location", restaurant.get("neighborhood", "N/A")),
                     "food_style": restaurant.get("food_style", restaurant.get("cuisine", "N/A")),
-                    "rating": restaurant["rating"],
+                    "rating": restaurant.get("rating", "N/A"),
                     "vibe": restaurant.get("vibe", restaurant.get("vibes", [])),
-                    "price_range": restaurant["price_range"],
+                    "price_range": restaurant.get("price_range", "N/A"),
                 }
             )
 
     # Pass 2: Search the raw text for additional matches 
-    raw_text = CULINARY_MAP_PATH.read_text()
+    raw_text = CULINARY_MAP_PATH.read_text(encoding="utf-8")
     paragraphs = raw_text.split("\n\n")
     text_excerpts = []
     for para in paragraphs:
